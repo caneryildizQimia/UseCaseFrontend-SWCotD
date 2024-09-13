@@ -18,8 +18,8 @@ This Next.js application presents a "Star Wars Character of the Day" using data 
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/star-wars-character-of-the-day.git
-   cd star-wars-character-of-the-day
+   git clone https://github.com/caneryildizQimia/UseCaseFrontend-SWCotD.git
+   cd UseCaseFrontend-SWCotD
    ```
 
 2. Install dependencies:
