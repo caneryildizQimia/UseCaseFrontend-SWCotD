@@ -1,0 +1,51 @@
+name: Next.js App CI/CD Pipeline
+
+on:
+  pull_request:
+    branches:
+      - dev
+    paths:
+      - 'nextjs-app/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: |
+          cd nextjs-app/stwcotd
+          npm install
+
+      - name: Run tests
+        run: |
+          cd nextjs-app/stwcotd
+          npm test
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    if: success()
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build Docker Image
+        run: |
+          cd nextjs-app/stwcotd
+          docker build -t my-nextjs-app .
+
+      - name: Push Docker Image
+        run: |
+          echo ${{ secrets.DOCKERHUB_USERNAME }} | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+          docker tag my-nextjs-app:latest my-repo/my-nextjs-app:latest
+          docker push my-repo/my-nextjs-app:latest
