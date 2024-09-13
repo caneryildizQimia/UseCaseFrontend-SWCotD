@@ -1,40 +1,74 @@
+# Star Wars Character of the Day
 
-# VHH Case Studies
+This Next.js application presents a "Star Wars Character of the Day" using data from the Star Wars API (SWAPI). It randomly selects a Star Wars character and displays it in an appealing way. The character remains consistent for a single user throughout the day.
 
-This Monorepo containing two distinct projects: a Next.js application and a FastAPI-based API. This repository is structured to provide an integrated view of these two projects, each serving different purposes.
+## Features
 
-## Projects
+- Randomly selects a Star Wars character daily
+- Presents character information in an engaging format
+- Consistent character display for individual users throughout the day
+- Responsive design for various screen sizes
 
-### 1. Star Wars Character of the Day (Next.js Application)
+## Prerequisites
 
-This project is a **Next.js** application that showcases a "Star Wars Character of the Day" using data from the Star Wars API (SWAPI). 
+- Node.js (version 14 or higher)
+- npm or yarn
 
-**Features:**
-- **Random Character Selection:** Displays a randomly selected Star Wars character.
-- **Consistent Character for the Day:** Ensures that the character remains the same for a single user throughout the day.
-- **Appealing UI:** Presents the character in an engaging and visually pleasing manner.
+## Installation
 
-**Getting Started:**
-1. Navigate to the [Next.js project](./nextjs-project) directory.
-2. Follow the [Next.js README](./nextjs-project/README.md) for setup and usage instructions.
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/star-wars-character-of-the-day.git
+   cd star-wars-character-of-the-day
+   ```
 
-### 2. Air Pollution Statistics API (FastAPI)
+2. Install dependencies:
+   ```
+   npm install
+   # or
+   yarn install
+   ```
 
-This project is a **FastAPI**-based API designed to provide various endpoints for retrieving air pollution-related statistics.
+## Running the Application
 
-**Features:**
-- **Endpoints for Statistics:** Provides data such as averages, medians, and standard deviations for air pollution over specified time ranges.
-- **Geographical Scope:** Includes statistics for countries and continents.
+1. Start the development server:
+   ```
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-**Getting Started:**
-1. Navigate to the [FastAPI project](./fastapi-project) directory.
-2. Follow the [FastAPI README](./fastapi-project/README.md) for setup and usage instructions.
+2. Open your browser and navigate to `http://localhost:3000`
+
+## Building for Production
+
+To create a production-ready build:
+
+```
+npm run build
+# or
+yarn build
+```
+
+Then start the production server:
+
+```
+npm start
+# or
+yarn start
+```
 
 
+## Technologies Used
 
+- Next.js
+- React
+- SWAPI (Star Wars API)
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This repository is licensed under the [MIT License](./LICENSE).
-
-
+This project is licensed under the MIT License.

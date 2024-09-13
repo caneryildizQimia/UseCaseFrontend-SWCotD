@@ -5,7 +5,7 @@ on:
     branches:
       - dev
     paths:
-      - 'nextjs-app/**'
+      - '**'
 
 jobs:
   test:
@@ -18,17 +18,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: '20'
 
       - name: Install dependencies
-        run: |
-          cd nextjs-app/swcotd
-          npm install
+        run: npm install
 
       - name: Run tests
-        run: |
-          cd nextjs-app/swcotd
-          npm test
+        run: npm test
 
   build:
     needs: test
@@ -39,13 +35,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build Docker Image
-        run: |
-          cd nextjs-app/swcotd
-          docker build -t my-nextjs-app .
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
 
-      - name: Push Docker Image
-        run: |
-          echo ${{ secrets.DOCKERHUB_USERNAME }} | docker login --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-          docker tag my-nextjs-app:latest my-repo/my-nextjs-app:latest
-          docker push my-repo/my-nextjs-app:latest
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-nextjs-app:latest
