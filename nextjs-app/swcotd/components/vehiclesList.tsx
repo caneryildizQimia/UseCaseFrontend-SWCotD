@@ -1,5 +1,6 @@
 import { Vehicle } from "@/types/vehicle";
 import Tooltip from "./tooltip";
+import React from "react"; 
 
 interface VehiclesListProps {
   vehicles: (Vehicle | string)[];

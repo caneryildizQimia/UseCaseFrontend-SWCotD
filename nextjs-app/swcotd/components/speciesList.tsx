@@ -1,5 +1,6 @@
 import { Species } from "@/types/species";
 import Tooltip from "./tooltip";
+import React from "react"; 
 
 interface SpeciesListProps {
   species: (Species | string)[];

@@ -1,3 +1,4 @@
+import React from "react"; 
 import { Character } from "@/types/character";
 import CharacterInfo from "./characterInfo";
 import Tab from "./tab";

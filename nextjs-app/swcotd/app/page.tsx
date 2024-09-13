@@ -1,3 +1,4 @@
+import React from "react"; 
 import CharacterCard from "@/components/characterCard";
 import CookieSetter from "@/components/cookieSetter";
 import { getCharacterOfTheDay } from "@/utils/swapi";
