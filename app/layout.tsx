@@ -4,7 +4,7 @@ import React from "react";
 
 export const metadata: Metadata = {
   title: "Star Wars Character Of The Day",
-  description: "SWAPI based character display"
+  description: "SWAPI based character display."
 };
 export const fetchCache = 'force-no-store';
 
