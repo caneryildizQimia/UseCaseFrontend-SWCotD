@@ -5,7 +5,7 @@ on:
     branches:
       - dev
     paths:
-      - 'nextjs-app/**'
+      - '**'
 
 jobs:
   test:
@@ -21,14 +21,10 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: |
-          cd nextjs-app/swcotd
-          npm install
+        run: npm install
 
       - name: Run tests
-        run: |
-          cd nextjs-app/swcotd
-          npm test
+        run: npm test
 
   build:
     needs: test
@@ -51,6 +47,6 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: nextjs-app/swcotd
+          context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-nextjs-app:latest
