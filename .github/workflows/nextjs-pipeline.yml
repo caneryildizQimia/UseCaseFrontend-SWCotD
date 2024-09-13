@@ -22,12 +22,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd nextjs-app/stwcotd
+          cd nextjs-app/swcotd
           npm install
 
       - name: Run tests
         run: |
-          cd nextjs-app/stwcotd
+          cd nextjs-app/swcotd
           npm test
 
   build:
@@ -41,7 +41,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          cd nextjs-app/stwcotd
+          cd nextjs-app/swcotd
           docker build -t my-nextjs-app .
 
       - name: Push Docker Image
