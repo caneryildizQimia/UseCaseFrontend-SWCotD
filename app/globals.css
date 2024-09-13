@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Star-Jedi';
+  src: url('/fonts/Starjedi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Goldman-Regular';
+  src: url('/fonts/Goldman-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-starjedi {
+  font-family: 'Star-Jedi', sans-serif;
+}
+.font-goldman{
+  font-family: 'Goldman-Regular', sans-serif;
+}
+
+.background-img{
+  background-image: url('/images/backgrounds/stars-bg.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  height: 100vh;
+  width: 100%; 
+}
+
+li.yellow-square-bullet{
+  list-style: square;
+}
+li.yellow-square-bullet::marker {
+  color: #ffe81f;
+}
